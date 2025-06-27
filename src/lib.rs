@@ -1,6 +1,6 @@
-//! # RealMir Core
-//! 
-//! High-performance Rust implementation of the RealMir prediction market core functionality.
+//! # Cliptions Core
+//!
+//! High-performance Rust implementation of the Cliptions prediction market core functionality.
 //! This library provides cryptographic commitments, scoring strategies, embedding integration,
 //! and round processing capabilities.
 //! 
@@ -40,10 +40,10 @@ pub use scoring::{ScoringStrategy, ClipBatchStrategy, ScoreValidator};
 pub use embedder::{EmbedderTrait, MockEmbedder};
 pub use round::{RoundProcessor};
 pub use payout::{PayoutCalculator, PayoutConfig, PayoutInfo};
-pub use config::{ConfigManager, CostTracker, RealMirConfig, OpenAIConfig, SpendingStatus};
+pub use config::{ConfigManager, CostTracker, CliptionsConfig, OpenAIConfig, SpendingStatus};
 pub use social::{SocialWorkflow, AnnouncementFormatter, UrlParser, HashtagManager, AnnouncementData, TweetId};
 pub use types::{Guess, Participant, ScoringResult, RoundData};
-pub use error::{RealMirError, Result};
+pub use error::{CliptionsError, Result};
 
 // Re-export Python module when feature is enabled
 #[cfg(feature = "python")]

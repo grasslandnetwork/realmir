@@ -1,4 +1,4 @@
-//! Embedding model interface for RealMir
+//! Embedding model interface for Cliptions
 //! 
 //! This module provides the interface for embedding models like CLIP,
 //! along with a mock implementation for testing and development.
@@ -610,7 +610,7 @@ mod tests {
         let embedding2 = embedder2.get_text_embedding("test").unwrap();
         
         let result = cosine_similarity(&embedding1, &embedding2);
-        assert!(matches!(result, Err(crate::error::RealMirError::Embedding(EmbeddingError::InvalidDimensions))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Embedding(EmbeddingError::InvalidDimensions))));
     }
     
     #[test]

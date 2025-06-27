@@ -1,5 +1,5 @@
 """
-Integration Tests for RealMir Browser Automation
+Integration Tests for Cliptions Browser Automation
 
 This directory contains integration tests that use real browser automation
 to test the complete workflows end-to-end. These tests:

@@ -1,6 +1,6 @@
-# Examples for RealMir Browser Modules
+# Examples for Cliptions Browser Modules
 
-This directory contains example and demo scripts for the modular Twitter automation system used in the RealMir prediction network.
+This directory contains example and demo scripts for the modular Twitter automation system used in the Cliptions prediction network.
 
 ## Purpose
 - Demonstrate how to use the core modules and interfaces in `browser/`

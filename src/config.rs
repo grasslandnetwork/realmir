@@ -1,4 +1,4 @@
-use crate::error::{RealMirError, Result};
+use crate::error::{CliptionsError, Result};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use std::env;
@@ -67,13 +67,13 @@ impl Default for CostTrackingConfig {
 
 /// Main configuration structure
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct RealMirConfig {
+pub struct CliptionsConfig {
     pub openai: OpenAIConfig,
     pub browser_use: BrowserUseConfig,
     pub cost_tracking: CostTrackingConfig,
 }
 
-impl Default for RealMirConfig {
+impl Default for CliptionsConfig {
     fn default() -> Self {
         Self {
             openai: OpenAIConfig::default(),
@@ -111,7 +111,7 @@ pub struct UsageBreakdown {
 /// Configuration manager
 #[derive(Debug)]
 pub struct ConfigManager {
-    config: RealMirConfig,
+    config: CliptionsConfig,
     config_path: PathBuf,
 }
 
@@ -139,20 +139,20 @@ impl ConfigManager {
     }
 
     /// Load configuration from file
-    fn load_config(config_path: &Path) -> Result<RealMirConfig> {
+    fn load_config(config_path: &Path) -> Result<CliptionsConfig> {
         if !config_path.exists() {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 format!("Configuration file not found: {}", config_path.display())
             ));
         }
 
         let content = fs::read_to_string(config_path)
-            .map_err(|e| RealMirError::ConfigError(
+            .map_err(|e| CliptionsError::ConfigError(
                 format!("Failed to read config file: {}", e)
             ))?;
 
-        let mut config: RealMirConfig = serde_yaml::from_str(&content)
-            .map_err(|e| RealMirError::ConfigError(
+        let mut config: CliptionsConfig = serde_yaml::from_str(&content)
+            .map_err(|e| CliptionsError::ConfigError(
                 format!("Failed to parse config file: {}", e)
             ))?;
 
@@ -166,7 +166,7 @@ impl ConfigManager {
     }
 
     /// Apply environment variable overrides
-    fn apply_env_overrides(config: &mut RealMirConfig) {
+    fn apply_env_overrides(config: &mut CliptionsConfig) {
         if let Ok(api_key) = env::var("OPENAI_API_KEY") {
             config.openai.api_key = api_key;
         }
@@ -183,33 +183,33 @@ impl ConfigManager {
     }
 
     /// Validate configuration
-    fn validate_config(config: &RealMirConfig) -> Result<()> {
+    fn validate_config(config: &CliptionsConfig) -> Result<()> {
         if config.openai.api_key.is_empty() {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 "OpenAI API key is required".to_string()
             ));
         }
 
         if config.openai.project_id.is_empty() {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 "OpenAI project ID is required".to_string()
             ));
         }
 
         if config.openai.daily_spending_limit_usd <= 0.0 {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 "Daily spending limit must be positive".to_string()
             ));
         }
 
         if config.openai.temperature < 0.0 || config.openai.temperature > 2.0 {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 "Temperature must be between 0.0 and 2.0".to_string()
             ));
         }
 
         if config.cost_tracking.alert_threshold_percent < 0.0 || config.cost_tracking.alert_threshold_percent > 100.0 {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 "Alert threshold percent must be between 0 and 100".to_string()
             ));
         }
@@ -218,7 +218,7 @@ impl ConfigManager {
     }
 
     /// Get current configuration
-    pub fn get_config(&self) -> &RealMirConfig {
+    pub fn get_config(&self) -> &CliptionsConfig {
         &self.config
     }
 
@@ -240,7 +240,7 @@ impl ConfigManager {
     /// Update daily spending limit
     pub fn set_daily_spending_limit(&mut self, limit: f64) -> Result<()> {
         if limit <= 0.0 {
-            return Err(RealMirError::ConfigError(
+            return Err(CliptionsError::ConfigError(
                 "Daily spending limit must be positive".to_string()
             ));
         }
@@ -252,12 +252,12 @@ impl ConfigManager {
     /// Save configuration to file
     pub fn save_config(&self) -> Result<()> {
         let content = serde_yaml::to_string(&self.config)
-            .map_err(|e| RealMirError::ConfigError(
+            .map_err(|e| CliptionsError::ConfigError(
                 format!("Failed to serialize config: {}", e)
             ))?;
 
         fs::write(&self.config_path, content)
-            .map_err(|e| RealMirError::ConfigError(
+            .map_err(|e| CliptionsError::ConfigError(
                 format!("Failed to write config file: {}", e)
             ))?;
 

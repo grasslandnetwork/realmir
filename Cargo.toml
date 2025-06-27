@@ -1,16 +1,16 @@
 [package]
-name = "realmir-core"
+name = "cliptions-core"
 version = "0.1.0"
 edition = "2021"
-description = "RealMir prediction market core functionality implemented in Rust with optional Python bindings"
+description = "Cliptions prediction market core functionality implemented in Rust with optional Python bindings"
 license = "MIT"
-authors = ["RealMir Team"]
-repository = "https://github.com/your-org/realmir"
+authors = ["Cliptions Team"]
+repository = "https://github.com/your-org/cliptions"
 keywords = ["prediction-market", "machine-learning", "embeddings", "commitments"]
 categories = ["science", "algorithms"]
 
 [lib]
-name = "realmir_core"
+name = "cliptions_core"
 crate-type = ["cdylib", "rlib"]
 
 [features]

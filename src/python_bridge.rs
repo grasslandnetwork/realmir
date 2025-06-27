@@ -1,4 +1,4 @@
-//! Python bridge for RealMir core functionality
+//! Python bridge for Cliptions core functionality
 //! 
 //! This module provides Python bindings for the Rust core using PyO3.
 //! It handles type conversion between Rust and Python types and exposes
@@ -13,22 +13,22 @@ use crate::commitment::{CommitmentGenerator, CommitmentVerifier};
 use crate::scoring::{ScoringStrategy, ClipBatchStrategy, ScoreValidator, calculate_rankings, calculate_payouts};
 use crate::embedder::{MockEmbedder, ClipEmbedder, cosine_similarity};
 use crate::round::{RoundProcessor};
-use crate::error::{RealMirError};
+use crate::error::{CliptionsError};
 
-/// Convert RealMirError to PyErr for Python integration
-impl From<RealMirError> for PyErr {
-    fn from(err: RealMirError) -> PyErr {
+/// Convert CliptionsError to PyErr for Python integration
+impl From<CliptionsError> for PyErr {
+    fn from(err: CliptionsError) -> PyErr {
         match err {
-            RealMirError::Commitment(_) => {
+            CliptionsError::Commitment(_) => {
                 pyo3::exceptions::PyValueError::new_err(err.to_string())
             },
-            RealMirError::Validation(_) => {
+            CliptionsError::Validation(_) => {
                 pyo3::exceptions::PyValueError::new_err(err.to_string())
             },
-            RealMirError::Io(_) => {
+            CliptionsError::Io(_) => {
                 pyo3::exceptions::PyIOError::new_err(err.to_string())
             },
-            RealMirError::Json(_) => {
+            CliptionsError::Json(_) => {
                 pyo3::exceptions::PyValueError::new_err(err.to_string())
             },
             _ => pyo3::exceptions::PyRuntimeError::new_err(err.to_string()),
@@ -334,7 +334,7 @@ fn test_deserialize_round(round_dict: &Bound<'_, pyo3::types::PyDict>) -> PyResu
 
 /// Main Python module definition
 #[pymodule]
-fn realmir_core(m: &Bound<'_, PyModule>) -> PyResult<()> {
+fn cliptions_core(m: &Bound<'_, PyModule>) -> PyResult<()> {
     // Classes
     m.add_class::<PyCommitmentGenerator>()?;
     m.add_class::<PyScoreValidator>()?;

@@ -1,6 +1,6 @@
-# Contributing to RealMir
+# Contributing to Cliptions
 
-Thank you for your interest in contributing to RealMir! This document provides detailed setup instructions and development guidelines.
+Thank you for your interest in contributing to Cliptions! This document provides detailed setup instructions and development guidelines.
 
 ## Table of Contents
 - [Development Setup](#development-setup)
@@ -124,11 +124,11 @@ The system includes built-in cost tracking and spending limits to prevent unexpe
 When using browser-use to collect Twitter data, provide these instructions to the LLM:
 
 ```
-Task: Collect RealMir game guesses from Twitter replies.
+Task: Collect Cliptions game guesses from Twitter replies.
 
 Steps:
 1. Navigate to Twitter.com
-2. Search for @realmir_testnet
+2. Search for @cliptions_testnet
 3. Find the latest tweet with hashtag #round{NUMBER}
 4. Collect all replies containing guesses:
    - Look for patterns like:
@@ -241,7 +241,7 @@ The `requirements.txt` file contains different groups of dependencies:
 
 ### Architecture Overview
 
-The RealMir project includes a high-performance Rust core implementation with optional Python bindings. The library follows a **clean separation** between the pure Rust core and language bindings:
+The Cliptions project includes a high-performance Rust core implementation with optional Python bindings. The library follows a **clean separation** between the pure Rust core and language bindings:
 
 ```
 src/
@@ -278,7 +278,7 @@ src/
 
 ### Data Models & Schema Consistency
 
-The RealMir system uses a **dual-language data architecture** where Rust serves as the single source of truth for data structures, while Python uses mirrored Pydantic models for validation and interface safety.
+The Cliptions system uses a **dual-language data architecture** where Rust serves as the single source of truth for data structures, while Python uses mirrored Pydantic models for validation and interface safety.
 
 #### Schema Consistency Testing
 
@@ -728,7 +728,7 @@ Based on IMPLEMENTATION_STATUS.md analysis:
 
 ### 🚀 **Current Implementation Status**
 
-The RealMir Rust core now includes **complete implementations** of all major modules:
+The Cliptions Rust core now includes **complete implementations** of all major modules:
 
 #### **✅ Implemented & Tested Modules**
 - **`src/config.rs`** - Configuration management with YAML loading, environment variables, cost tracking (9 tests)
@@ -756,9 +756,9 @@ The RealMir Rust core now includes **complete implementations** of all major mod
 
 ## Browser Use Roadmap
 
-# Browser Use - Roadmap: RealMir Modular Twitter Automation
+# Browser Use - Roadmap: Cliptions Modular Twitter Automation
 
-**Goal:** Create a modular Twitter automation system for the RealMir prediction network, supporting both Validator and Miner workflows through separate, reusable components that implement a shared set of interfaces.
+**Goal:** Create a modular Twitter automation system for the Cliptions prediction network, supporting both Validator and Miner workflows through separate, reusable components that implement a shared set of interfaces.
 
 ## Architecture Overview
 

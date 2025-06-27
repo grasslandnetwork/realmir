@@ -1,6 +1,6 @@
-//! Core data types for RealMir
-//! 
-//! This module defines the fundamental data structures used throughout the RealMir system,
+//! Core data types for Cliptions
+//!
+//! This module defines the fundamental data structures used throughout the Cliptions system,
 //! including participants, guesses, scoring results, and round data.
 
 use serde::{Deserialize, Serialize};

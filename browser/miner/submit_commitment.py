@@ -1,5 +1,5 @@
 """
-Commitment Submission Module for RealMir Miners
+Commitment Submission Module for Cliptions Miners
 
 This module implements the TwitterPostingInterface to submit commitment hashes as replies
 to validator round announcement tweets. Miners use this to participate in prediction rounds

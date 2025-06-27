@@ -3,7 +3,7 @@
 Demo script for testing the Round Announcement module
 
 This script demonstrates how to use the RoundAnnouncementTask to create
-and format round announcements for the RealMir prediction network.
+and format round announcements for the Cliptions prediction network.
 """
 
 import sys
@@ -25,7 +25,7 @@ from browser.validator.announce_round import (
 
 async def demo_round_announcement():
     """Demonstrate the round announcement functionality"""
-    print("🎯 RealMir Round Announcement Demo")
+    print("🎯 Cliptions Round Announcement Demo")
     print("=" * 50)
     
     # Create a standard round announcement
@@ -56,7 +56,7 @@ async def demo_round_announcement():
         reveal_deadline=now + timedelta(hours=36),
         prize_pool=0.010,
         instructions="This is a special demo round with custom parameters",
-        hashtags=["#realmir", "$TAO", "#customround"]
+        hashtags=["#cliptions", "$TAO", "#customround"]
     )
     
     custom_content = task.format_content(custom_data)

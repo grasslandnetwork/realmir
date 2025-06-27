@@ -1,4 +1,4 @@
-//! Generate cryptographic commitments for RealMir predictions
+//! Generate cryptographic commitments for Cliptions predictions
 //! 
 //! Enhanced CLI tool for generating secure commitment hashes from prediction messages
 //! and salt values. This tool replaces the Python generate_commitment.py script with
@@ -11,15 +11,15 @@ use clap::Parser;
 use colored::Colorize;
 use serde_json::Value;
 
-use realmir_core::commitment::CommitmentGenerator;
-use realmir_core::config::ConfigManager;
+use cliptions_core::commitment::CommitmentGenerator;
+use cliptions_core::config::ConfigManager;
 
 #[derive(Parser)]
 #[command(name = "generate_commitment")]
-#[command(about = "Generate cryptographic commitments for RealMir predictions")]
+#[command(about = "Generate cryptographic commitments for Cliptions predictions")]
 #[command(version = "2.0")]
 #[command(long_about = "
-Generate secure commitment hashes for RealMir prediction market participation.
+Generate secure commitment hashes for Cliptions prediction market participation.
 
 This tool creates SHA-256 commitment hashes from your prediction message and a salt value.
 The commitment hash can be submitted publicly without revealing your actual prediction,

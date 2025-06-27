@@ -1,5 +1,5 @@
 """
-Pydantic Data Models for RealMir
+Pydantic Data Models for Cliptions
 
 This module defines the Pydantic models that mirror the core data structures
 defined in the Rust `src/models.rs`. These models are used for data validation,

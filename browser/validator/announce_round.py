@@ -1,5 +1,5 @@
 """
-Round Announcement Module for RealMir Validator
+Round Announcement Module for Cliptions Validator
 
 This module implements the TwitterPostingInterface to post new round announcements.
 The Validator uses this to kick off each prediction round by posting details about
@@ -31,7 +31,7 @@ class RoundAnnouncementData(BaseModel):
     reveal_deadline: datetime = Field(..., description="Deadline for reveal submissions")
     livestream_url: str = Field(..., description="URL of the livestream players are predicting")
     instructions: str = Field(default="", description="Additional instructions for participants")
-    hashtags: list[str] = Field(default_factory=lambda: ["#realmir", "$TAO"])
+    hashtags: list[str] = Field(default_factory=lambda: ["#cliptions", "$TAO"])
 
 
 class RoundAnnouncementResult(BaseModel):
@@ -320,5 +320,5 @@ def create_custom_round_announcement(
         commitment_deadline=commitment_deadline,
         reveal_deadline=reveal_deadline,
         instructions=instructions,
-        hashtags=hashtags or ["#realmir", "$TAO"]
+        hashtags=hashtags or ["#cliptions", "$TAO"]
     ) 

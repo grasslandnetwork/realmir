@@ -1,5 +1,5 @@
 """
-Core interfaces for RealMir Twitter automation system.
+Core interfaces for Cliptions Twitter automation system.
 
 This module defines the abstract base classes that all Twitter automation modules
 must implement, ensuring consistency and testability across the system.

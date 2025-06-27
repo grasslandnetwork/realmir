@@ -1,7 +1,7 @@
 """
-RealMir Core Logic
+Cliptions Core Logic
 
-This package contains the core functionality for the RealMir prediction market system,
+This package contains the core functionality for the Cliptions prediction market system,
 including interfaces, commitment handling, scoring, and payout processing.
 """
 

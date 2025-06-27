@@ -111,7 +111,7 @@ if __name__ == "__main__":
     """
     Run the integration test directly (outside of pytest)
     """
-    print("=== RealMir Commitment Collection Integration Test ===")
+    print("=== Cliptions Commitment Collection Integration Test ===")
     print("This will perform a full end-to-end test using real browser automation.")
     print()
     

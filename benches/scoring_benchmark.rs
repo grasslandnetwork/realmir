@@ -1,4 +1,4 @@
-//! Benchmarks for RealMir core functionality
+//! Benchmarks for Cliptions core functionality
 //! 
 //! These benchmarks measure the performance of key operations to demonstrate
 //! the performance improvements over the Python implementation.
@@ -6,9 +6,9 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion, BenchmarkId};
 use std::time::Duration;
 
-use realmir_core::commitment::{CommitmentGenerator, CommitmentVerifier};
-use realmir_core::embedder::MockEmbedder;
-use realmir_core::scoring::{ClipBatchStrategy, ScoreValidator, calculate_rankings, calculate_payouts};
+use cliptions_core::commitment::{CommitmentGenerator, CommitmentVerifier};
+use cliptions_core::embedder::MockEmbedder;
+use cliptions_core::scoring::{ClipBatchStrategy, ScoreValidator, calculate_rankings, calculate_payouts};
 
 fn benchmark_commitment_generation(c: &mut Criterion) {
     let generator = CommitmentGenerator::new();

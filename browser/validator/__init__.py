@@ -1,7 +1,7 @@
 """
-Validator modules for RealMir Twitter automation.
+Validator modules for Cliptions Twitter automation.
 
-This package contains modules that implement the Validator side of the RealMir prediction game:
+This package contains modules that implement the Validator side of the Cliptions prediction game:
 - Round announcements
 - Commitment collection  
 - Entry fee assignment

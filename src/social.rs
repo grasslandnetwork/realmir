@@ -1,4 +1,4 @@
-use crate::error::{RealMirError, Result};
+use crate::error::{CliptionsError, Result};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 use url::Url;
@@ -46,7 +46,7 @@ impl UrlParser {
     /// Create a new URL parser
     pub fn new() -> Result<Self> {
         let twitter_regex = Regex::new(r"https?://(?:www\.)?(?:twitter\.com|x\.com)/[^/]+/status/(\d+)")
-            .map_err(|e| RealMirError::ValidationError(format!("Invalid regex: {}", e)))?;
+            .map_err(|e| CliptionsError::ValidationError(format!("Invalid regex: {}", e)))?;
         
         Ok(Self {
             twitter_regex,
@@ -61,7 +61,7 @@ impl UrlParser {
             }
         }
         
-        Err(RealMirError::ValidationError(
+        Err(CliptionsError::ValidationError(
             format!("Invalid Twitter URL: {}", url)
         ))
     }
@@ -69,14 +69,14 @@ impl UrlParser {
     /// Validate URL format
     pub fn validate_url(&self, url: &str) -> Result<()> {
         Url::parse(url)
-            .map_err(|e| RealMirError::ValidationError(format!("Invalid URL: {}", e)))?;
+            .map_err(|e| CliptionsError::ValidationError(format!("Invalid URL: {}", e)))?;
         Ok(())
     }
 
     /// Extract domain from URL
     pub fn extract_domain(&self, url: &str) -> Result<String> {
         let parsed = Url::parse(url)
-            .map_err(|e| RealMirError::ValidationError(format!("Invalid URL: {}", e)))?;
+            .map_err(|e| CliptionsError::ValidationError(format!("Invalid URL: {}", e)))?;
         
         Ok(parsed.domain().unwrap_or("unknown").to_string())
     }
@@ -98,7 +98,7 @@ impl HashtagManager {
     pub fn new() -> Self {
         Self {
             standard_hashtags: vec![
-                "#RealMir".to_string(),
+                "#Cliptions".to_string(),
                 "#PredictionMarket".to_string(),
                 "#CLIP".to_string(),
             ],
@@ -247,7 +247,7 @@ impl SocialTask for MockSocialTask {
         if self.should_succeed {
             Ok(format!("Mock task '{}' executed successfully with context: {:?}", self.name, context))
         } else {
-            Err(RealMirError::ValidationError(
+            Err(CliptionsError::ValidationError(
                 format!("Mock task '{}' failed", self.name)
             ))
         }
@@ -320,12 +320,12 @@ mod tests {
         let parser = UrlParser::new().unwrap();
         
         // Test Twitter URL
-        let twitter_url = "https://twitter.com/realmir_testnet/status/1234567890";
+        let twitter_url = "https://twitter.com/cliptions_testnet/status/1234567890";
         let tweet_id = parser.extract_tweet_id(twitter_url).unwrap();
         assert_eq!(tweet_id, "1234567890");
         
         // Test X URL
-        let x_url = "https://x.com/realmir_testnet/status/9876543210";
+        let x_url = "https://x.com/cliptions_testnet/status/9876543210";
         let tweet_id = parser.extract_tweet_id(x_url).unwrap();
         assert_eq!(tweet_id, "9876543210");
         
@@ -359,7 +359,7 @@ mod tests {
         let hashtag_manager = HashtagManager::new();
         
         let hashtags = hashtag_manager.generate_hashtags("round1", None);
-        assert!(hashtags.contains(&"#RealMir".to_string()));
+        assert!(hashtags.contains(&"#Cliptions".to_string()));
         assert!(hashtags.contains(&"#round1".to_string()));
         
         let custom_hashtags = vec!["#custom".to_string()];
@@ -420,7 +420,7 @@ mod tests {
         assert!(announcement.contains("round1 is now live"));
         assert!(announcement.contains("2024-01-01 12:00:00"));
         assert!(announcement.contains("Prize pool: 100 TAO"));
-        assert!(announcement.contains("#RealMir"));
+        assert!(announcement.contains("#Cliptions"));
         assert!(announcement.contains("#round1"));
     }
 

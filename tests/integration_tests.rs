@@ -1,15 +1,15 @@
-//! Integration tests for RealMir core functionality
+//! Integration tests for Cliptions core functionality
 //! 
 //! These tests verify that all components work together correctly
 //! and provide end-to-end testing of the complete system.
 
 use tempfile::NamedTempFile;
 
-use realmir_core::commitment::{CommitmentGenerator, CommitmentVerifier};
-use realmir_core::embedder::{MockEmbedder, EmbedderTrait};
-use realmir_core::scoring::{ClipBatchStrategy, ScoreValidator, ScoringStrategy, calculate_rankings, calculate_payouts};
-use realmir_core::round::RoundProcessor;
-use realmir_core::types::{RoundData, Participant, Guess, RoundConfig, RoundStatus};
+use cliptions_core::commitment::{CommitmentGenerator, CommitmentVerifier};
+use cliptions_core::embedder::{MockEmbedder, EmbedderTrait};
+use cliptions_core::scoring::{ClipBatchStrategy, ScoreValidator, ScoringStrategy, calculate_rankings, calculate_payouts};
+use cliptions_core::round::RoundProcessor;
+use cliptions_core::types::{RoundData, Participant, Guess, RoundConfig, RoundStatus};
 
 #[test]
 fn test_complete_round_lifecycle() {

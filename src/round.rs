@@ -1,4 +1,4 @@
-//! Round processing for RealMir prediction markets
+//! Round processing for Cliptions prediction markets
 //! 
 //! This module handles the complete lifecycle of prediction rounds,
 //! including participant management, commitment verification, scoring, and payout calculation.
@@ -437,6 +437,6 @@ mod tests {
         let (mut processor, _) = create_test_processor();
         
         let result = processor.get_round("nonexistent");
-        assert!(matches!(result, Err(crate::error::RealMirError::Round(RoundError::RoundNotFound { .. }))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Round(RoundError::RoundNotFound { .. }))));
     }
 }

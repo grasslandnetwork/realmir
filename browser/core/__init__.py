@@ -1,5 +1,5 @@
 """
-RealMir Twitter Automation Core Module
+Cliptions Twitter Automation Core Module
 
 This package provides the foundational interfaces and base classes for 
 the modular Twitter automation system.

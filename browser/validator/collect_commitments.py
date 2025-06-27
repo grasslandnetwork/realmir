@@ -1,5 +1,5 @@
 """
-Commitment Collection Module for RealMir Validators
+Commitment Collection Module for Cliptions Validators
 
 This module is responsible for extracting all miner commitment submissions
 from the replies to a validator's round announcement tweet.

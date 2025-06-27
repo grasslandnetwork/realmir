@@ -235,7 +235,7 @@ def process_all_rounds(save_to_file=True, verify_commitments=True):
     return round_data
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Process payouts for RealMir rounds")
+    parser = argparse.ArgumentParser(description="Process payouts for Cliptions rounds")
     group = parser.add_mutually_exclusive_group(required=True)
     group.add_argument('--round', type=str, help="Process a specific round (e.g., round1)")
     group.add_argument('--all', action='store_true', help="Process all rounds that need payouts")

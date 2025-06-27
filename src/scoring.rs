@@ -1,4 +1,4 @@
-//! Scoring strategies and payout calculation for RealMir
+//! Scoring strategies and payout calculation for Cliptions
 //! 
 //! This module implements various scoring strategies for calculating similarity between
 //! image and text embeddings, as well as payout calculation based on rankings.
@@ -335,7 +335,7 @@ mod tests {
         
         // ClipBatchStrategy should return UnsupportedOperation for individual scoring
         let result = strategy.calculate_score(&img_features, &txt_features);
-        assert!(matches!(result, Err(crate::error::RealMirError::Scoring(ScoringError::UnsupportedOperation))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Scoring(ScoringError::UnsupportedOperation))));
     }
     
     #[test]
@@ -426,10 +426,10 @@ mod tests {
         let ranked_results = vec![("test".to_string(), 0.5)];
         
         let result = calculate_payouts(&ranked_results, -10.0);
-        assert!(matches!(result, Err(crate::error::RealMirError::Scoring(ScoringError::InvalidPrizePool { .. }))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Scoring(ScoringError::InvalidPrizePool { .. }))));
         
         let result = calculate_payouts(&ranked_results, 0.0);
-        assert!(matches!(result, Err(crate::error::RealMirError::Scoring(ScoringError::InvalidPrizePool { .. }))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Scoring(ScoringError::InvalidPrizePool { .. }))));
     }
     
     #[test]
@@ -439,6 +439,6 @@ mod tests {
         let validator = ScoreValidator::new(embedder, strategy);
         
         let result = calculate_rankings("test.jpg", &[], &validator);
-        assert!(matches!(result, Err(crate::error::RealMirError::Scoring(ScoringError::EmptyGuesses))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Scoring(ScoringError::EmptyGuesses))));
     }
 }

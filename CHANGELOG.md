@@ -16,4 +16,4 @@
 ### Security
 - Improved CLIP scoring to prevent exploits and increase accuracy.
 
-[0.3.0]: https://github.com/grasslandnetwork/realmir/releases/tag/0.3.0 
+[0.3.0]: https://github.com/grasslandnetwork/cliptions/releases/tag/0.3.0 

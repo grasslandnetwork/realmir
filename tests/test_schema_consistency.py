@@ -30,10 +30,10 @@ from browser.data_models import Commitment, Round
 
 # Attempt to import the Rust core library. If it fails, skip these tests.
 try:
-    from realmir_core import test_deserialize_commitment, test_deserialize_round
+    from cliptions_core import test_deserialize_commitment, test_deserialize_round
 except ImportError:
     # Set a flag to skip all tests in this file
-    pytest.skip("Could not import realmir_core. Run 'maturin develop' to build the Rust library.", allow_module_level=True)
+    pytest.skip("Could not import cliptions_core. Run 'maturin develop' to build the Rust library.", allow_module_level=True)
 
 
 def test_commitment_schema_consistency():

@@ -1,4 +1,4 @@
-//! Process round payouts for RealMir prediction markets
+//! Process round payouts for Cliptions prediction markets
 //! 
 //! Enhanced CLI tool with comprehensive error handling, multiple output formats,
 //! configuration support, and improved user experience for processing payouts
@@ -10,17 +10,17 @@ use std::fs;
 use clap::Parser;
 use colored::Colorize;
 
-use realmir_core::embedder::{MockEmbedder, ClipEmbedder, EmbedderTrait};
-use realmir_core::scoring::ClipBatchStrategy;
-use realmir_core::round::RoundProcessor;
-use realmir_core::config::ConfigManager;
+use cliptions_core::embedder::{MockEmbedder, ClipEmbedder, EmbedderTrait};
+use cliptions_core::scoring::ClipBatchStrategy;
+use cliptions_core::round::RoundProcessor;
+use cliptions_core::config::ConfigManager;
 
 #[derive(Parser)]
 #[command(name = "process_payouts")]
-#[command(about = "Process payouts for RealMir prediction rounds")]
+#[command(about = "Process payouts for Cliptions prediction rounds")]
 #[command(version = "2.0")]
 #[command(long_about = "
-Process payouts for RealMir prediction market rounds with comprehensive error handling
+Process payouts for Cliptions prediction market rounds with comprehensive error handling
 and multiple output formats.
 
 This tool calculates and processes payouts for prediction rounds, supporting both 
@@ -315,7 +315,7 @@ fn process_with_processor<E: EmbedderTrait>(
 
 #[derive(Debug)]
 struct ProcessingResults {
-    rounds: Vec<(String, Vec<realmir_core::types::ScoringResult>)>,
+    rounds: Vec<(String, Vec<cliptions_core::types::ScoringResult>)>,
     total_rounds_processed: usize,
     total_participants: usize,
     total_payout: f64,
@@ -703,8 +703,8 @@ fn save_results(
 mod tests {
     use super::*;
     use tempfile::NamedTempFile;
-    use realmir_core::types::{RoundData, Participant, Guess};
-    use realmir_core::commitment::CommitmentGenerator;
+    use cliptions_core::types::{RoundData, Participant, Guess};
+    use cliptions_core::commitment::CommitmentGenerator;
     use std::collections::HashMap;
 
     #[test]

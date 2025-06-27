@@ -1,4 +1,4 @@
-use crate::error::{RealMirError, Result};
+use crate::error::{CliptionsError, Result};
 use crate::types::Participant;
 use serde::{Deserialize, Serialize};
 
@@ -63,7 +63,7 @@ impl PayoutCalculator {
 
         let total_players = ranked_results.len();
         if total_players < self.config.minimum_players {
-            return Err(RealMirError::ValidationError(
+            return Err(CliptionsError::ValidationError(
                 format!("Minimum {} players required, got {}", self.config.minimum_players, total_players)
             ));
         }
@@ -169,19 +169,19 @@ impl PayoutCalculator {
     /// Validate payout configuration
     pub fn validate_config(&self) -> Result<()> {
         if self.config.prize_pool <= 0.0 {
-            return Err(RealMirError::ValidationError(
+            return Err(CliptionsError::ValidationError(
                 "Prize pool must be positive".to_string()
             ));
         }
 
         if self.config.platform_fee_percentage < 0.0 || self.config.platform_fee_percentage >= 100.0 {
-            return Err(RealMirError::ValidationError(
+            return Err(CliptionsError::ValidationError(
                 "Platform fee percentage must be between 0 and 100".to_string()
             ));
         }
 
         if self.config.minimum_players == 0 {
-            return Err(RealMirError::ValidationError(
+            return Err(CliptionsError::ValidationError(
                 "Minimum players must be at least 1".to_string()
             ));
         }
@@ -202,7 +202,7 @@ impl PayoutCalculator {
     /// Set a new prize pool
     pub fn set_prize_pool(&mut self, prize_pool: f64) -> Result<()> {
         if prize_pool <= 0.0 {
-            return Err(RealMirError::ValidationError(
+            return Err(CliptionsError::ValidationError(
                 "Prize pool must be positive".to_string()
             ));
         }
@@ -213,7 +213,7 @@ impl PayoutCalculator {
     /// Set platform fee percentage
     pub fn set_platform_fee(&mut self, fee_percentage: f64) -> Result<()> {
         if fee_percentage < 0.0 || fee_percentage >= 100.0 {
-            return Err(RealMirError::ValidationError(
+            return Err(CliptionsError::ValidationError(
                 "Platform fee percentage must be between 0 and 100".to_string()
             ));
         }

@@ -1,7 +1,7 @@
 """
-Browser-use Twitter automation package for RealMir
+Browser-use Twitter automation package for Cliptions
 
-This package provides modular Twitter automation components for the RealMir
+This package provides modular Twitter automation components for the Cliptions
 prediction network, supporting both Validator and Miner workflows.
 """
 

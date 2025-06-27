@@ -42,7 +42,7 @@ class TestRoundAnnouncementData:
         assert data.entry_fee == 0.001
         assert data.livestream_url == "https://www.youtube.com/watch?v=SMCRQj9Hbx8"
         assert len(data.hashtags) == 2
-        assert "#realmir" in data.hashtags
+        assert "#cliptions" in data.hashtags
         assert "$TAO" in data.hashtags
     
     def test_custom_hashtags(self):
@@ -87,7 +87,7 @@ class TestRoundAnnouncementTask:
         """Test the content formatting functionality"""
         content = task.format_content(sample_data)
         
-        assert "#testround1 #roundannouncement #realmir $TAO" in content
+        assert "#testround1 #roundannouncement #cliptions $TAO" in content
         assert "TEST ROUND 1 - Hash Your Prediction" in content
         assert "How To Play:" in content
         assert f"1. Watch: https://www.youtube.com/watch?v=SMCRQj9Hbx8" in content
@@ -110,7 +110,7 @@ class TestRoundAnnouncementTask:
         
         content = task.format_content(data)
         
-        assert "#testround2 #roundannouncement #realmir $TAO" in content
+        assert "#testround2 #roundannouncement #cliptions $TAO" in content
         assert "TEST ROUND 2 - Hash Your Prediction" in content
         assert f"1. Watch: https://www.youtube.com/watch?v=SMCRQj9Hbx8" in content
     
@@ -268,7 +268,7 @@ class TestUtilityFunctions:
             commitment_deadline=commit_deadline,
             reveal_deadline=reveal_deadline,
             instructions="Custom instructions",
-            hashtags=["#realmir", "$TAO", "#custom"]
+            hashtags=["#cliptions", "$TAO", "#custom"]
         )
         
         assert data.round_id == "custom_round"
@@ -277,7 +277,7 @@ class TestUtilityFunctions:
         assert data.commitment_deadline == commit_deadline
         assert data.reveal_deadline == reveal_deadline
         assert data.instructions == "Custom instructions"
-        assert data.hashtags == ["#realmir", "$TAO", "#custom"]
+        assert data.hashtags == ["#cliptions", "$TAO", "#custom"]
     
     def test_create_custom_round_announcement_default_hashtags(self):
         """Test creating a custom round announcement with default hashtags"""
@@ -291,7 +291,7 @@ class TestUtilityFunctions:
             reveal_deadline=now + timedelta(hours=48)
         )
         
-        assert data.hashtags == ["#realmir", "$TAO"]
+        assert data.hashtags == ["#cliptions", "$TAO"]
 
 
 # Integration test that would require actual browser automation

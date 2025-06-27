@@ -1,4 +1,4 @@
-# realmir
+# Cliptions
 
 Predict how an AI Agent will caption upcoming frames from live video streams. Players compete for cryptocurrency rewards based on prediction accuracy.
 
@@ -55,7 +55,7 @@ Predict how an AI Agent will caption upcoming frames from live video streams. Pl
 
 ## CLI Tools
 
-RealMir provides a complete suite of Rust-based CLI tools for all game operations. All tools use real CLIP models by default for accurate similarity calculations.
+Cliptions provides a complete suite of Rust-based CLI tools for all game operations. All tools use real CLIP models by default for accurate similarity calculations.
 
 ### Commitment Generation
 

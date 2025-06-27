@@ -14,7 +14,7 @@
                 "payout": {
                     "amount": 0.001646,
                     "currency": "TAO",
-                    "url": "https://x.com/realmir_testnet/status/1894191294789964005"
+                    "url": "https://x.com/cliptions_testnet/status/1894191294789964005"
                 }
             },
             {
@@ -30,14 +30,14 @@
                 "payout": {
                     "amount": 0.000823,
                     "currency": "TAO",
-                    "url": "https://x.com/realmir_testnet/status/1894192211392086315"
+                    "url": "https://x.com/cliptions_testnet/status/1894192211392086315"
                 }
             }
         ],
         "target_image": "round0/target20250223_133057EST.jpg",
         "target_time": "20250223_133057EST",
-        "round_commitment_url": "https://x.com/realmir_testnet/status/1893681256736452856",
-        "round_reveal_url": "https://x.com/realmir_testnet/status/1893788927930085755",
+        "round_commitment_url": "https://x.com/cliptions_testnet/status/1893681256736452856",
+        "round_reveal_url": "https://x.com/cliptions_testnet/status/1893788927930085755",
         "total_payout": 0.002469,
         "prize_pool": 0.002469
     },
@@ -56,14 +56,14 @@
                 "payout": {
                     "amount": 0.001,
                     "currency": "TAO",
-                    "url": "https://x.com/realmir_testnet/status/1918708643513430177"
+                    "url": "https://x.com/cliptions_testnet/status/1918708643513430177"
                 }
             }
         ],
         "target_image": "round1/target20250401_153057EST.jpg",
         "target_time": "20250401_153057EST",
-        "round_commitment_url": "https://x.com/realmir_testnet/status/1907130714241315148",
-        "round_reveal_url": "https://x.com/realmir_testnet/status/1907171976684187882",
+        "round_commitment_url": "https://x.com/cliptions_testnet/status/1907130714241315148",
+        "round_reveal_url": "https://x.com/cliptions_testnet/status/1907171976684187882",
         "total_payout": 0.001,
         "prize_pool": 0.001
     },
@@ -82,7 +82,7 @@
                 "payout": {
                     "amount": 0.001646,
                     "currency": "TAO",
-                    "url": "https://x.com/realmir_testnet/status/1918709304942580182"
+                    "url": "https://x.com/cliptions_testnet/status/1918709304942580182"
                 }
             },
             {
@@ -98,18 +98,18 @@
                 "payout": {
                     "amount": 0.000823,
                     "currency": "TAO",
-                    "url": "https://x.com/realmir_testnet/status/1918709304942580182"
+                    "url": "https://x.com/cliptions_testnet/status/1918709304942580182"
                 }
             }
         ],
         "target_image": "round2/target20250401_163057EST.jpg",
         "target_time": "20250401_163057EST",
-        "round_commitment_url": "https://x.com/realmir_testnet/status/1907159517013422578",
-        "round_reveal_url": "https://x.com/realmir_testnet/status/1907172528659034344",
+        "round_commitment_url": "https://x.com/cliptions_testnet/status/1907159517013422578",
+        "round_reveal_url": "https://x.com/cliptions_testnet/status/1907172528659034344",
         "total_payout": 0.002469,
         "prize_pool": 0.002469,
         "raw_commitment_replies": {
-            "original_tweet_url": "https://x.com/realmir_testnet/status/1907159517013422578",
+            "original_tweet_url": "https://x.com/cliptions_testnet/status/1907159517013422578",
             "total_replies_found": 2,
             "replies": [
                 {
@@ -144,7 +144,7 @@
                     "timestamp": "2025-06-14 12:42:07.464371"
                 }
             ],
-            "announcement_url": "https://x.com/realmir_testnet/status/1907159517013422578",
+            "announcement_url": "https://x.com/cliptions_testnet/status/1907159517013422578",
             "total_commitments_found": 2,
             "error_message": null
         }

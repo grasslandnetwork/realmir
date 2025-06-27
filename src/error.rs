@@ -1,16 +1,16 @@
-//! Error handling for RealMir core functionality
+//! Error handling for Cliptions core functionality
 //! 
 //! This module provides comprehensive error handling using the `thiserror` crate
 //! for ergonomic error definitions and proper error propagation.
 
 use thiserror::Error;
 
-/// Result type alias for RealMir operations
-pub type Result<T> = std::result::Result<T, RealMirError>;
+/// Result type alias for Cliptions operations
+pub type Result<T> = std::result::Result<T, CliptionsError>;
 
-/// Main error type for RealMir operations
+/// Main error type for Cliptions operations
 #[derive(Error, Debug)]
-pub enum RealMirError {
+pub enum CliptionsError {
     #[error("Commitment error: {0}")]
     Commitment(#[from] CommitmentError),
     

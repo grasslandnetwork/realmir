@@ -1,7 +1,7 @@
 """
-RealMir Miner Automation Modules
+Cliptions Miner Automation Modules
 
-This package contains modules for automating miner participation in RealMir prediction rounds.
+This package contains modules for automating miner participation in Cliptions prediction rounds.
 Miners use these modules to submit commitments and reveals in response to validator announcements.
 """
 

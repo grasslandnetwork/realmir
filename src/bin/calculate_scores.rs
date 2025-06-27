@@ -1,4 +1,4 @@
-//! Calculate scores and payouts for RealMir guesses
+//! Calculate scores and payouts for Cliptions guesses
 //! 
 //! Enhanced CLI tool with comprehensive error handling, multiple output formats,
 //! configuration support, and improved user experience.
@@ -9,16 +9,16 @@ use std::fs;
 use clap::Parser;
 use colored::Colorize;
 
-use realmir_core::embedder::{MockEmbedder, ClipEmbedder, EmbedderTrait};
-use realmir_core::scoring::{ClipBatchStrategy, ScoreValidator, calculate_rankings, calculate_payouts};
-use realmir_core::config::ConfigManager;
+use cliptions_core::embedder::{MockEmbedder, ClipEmbedder, EmbedderTrait};
+use cliptions_core::scoring::{ClipBatchStrategy, ScoreValidator, calculate_rankings, calculate_payouts};
+use cliptions_core::config::ConfigManager;
 
 #[derive(Parser)]
 #[command(name = "calculate_scores")]
-#[command(about = "Calculate rankings and payouts for RealMir guesses")]
+#[command(about = "Calculate rankings and payouts for Cliptions guesses")]
 #[command(version = "2.0")]
 #[command(long_about = "
-Calculate similarity scores and payout distribution for RealMir prediction market guesses.
+Calculate similarity scores and payout distribution for Cliptions prediction market guesses.
 
 This tool compares guesses against a target image using CLIP embeddings and calculates
 fair payouts based on similarity rankings. Supports multiple output formats and 

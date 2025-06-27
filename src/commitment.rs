@@ -1,4 +1,4 @@
-//! Cryptographic commitment system for RealMir
+//! Cryptographic commitment system for Cliptions
 //! 
 //! This module provides secure commitment generation and verification using SHA-256 hashing.
 //! The commitment scheme ensures that participants can commit to their guesses without revealing
@@ -187,7 +187,7 @@ mod tests {
         let generator = CommitmentGenerator::new();
         let result = generator.generate("message", "");
         
-        assert!(matches!(result, Err(crate::error::RealMirError::Commitment(CommitmentError::EmptySalt))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Commitment(CommitmentError::EmptySalt))));
     }
     
     #[test]
@@ -196,15 +196,15 @@ mod tests {
         
         // Test completely empty message
         let result = generator.generate("", "salt");
-        assert!(matches!(result, Err(crate::error::RealMirError::Commitment(CommitmentError::EmptyMessage))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Commitment(CommitmentError::EmptyMessage))));
         
         // Test whitespace-only message
         let result = generator.generate("   ", "salt");
-        assert!(matches!(result, Err(crate::error::RealMirError::Commitment(CommitmentError::EmptyMessage))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Commitment(CommitmentError::EmptyMessage))));
         
         // Test tab and newline only
         let result = generator.generate("\t\n  ", "salt");
-        assert!(matches!(result, Err(crate::error::RealMirError::Commitment(CommitmentError::EmptyMessage))));
+        assert!(matches!(result, Err(crate::error::CliptionsError::Commitment(CommitmentError::EmptyMessage))));
     }
     
     #[test]
